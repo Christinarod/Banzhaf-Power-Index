@@ -22,6 +22,7 @@ voters = [freshman, freshman_deans, sophmore, sophmore_deans, junior, junior_dea
 quota = 13
 
 
+
 def rotateList(voters):
     voters.append(voters.pop(0))   ###this function will rotate the list of voters
     return voters
@@ -37,11 +38,39 @@ def banzaf(voters, quota):
             else:
                 t[i][j] = t[i-1][j] + t[i-1][j-voters[i-1]]   ### other given for the algorithm by charlie 
     print(t)
-    return t ###this part isnt right i need to return the more specific thing that i need to calculate the banzaf power index i forgot
+    result = 0
+    pointer = -1
+    while(voters[0] > 0):
+        result = result + t[-2][pointer]  ## adding the numbers to get the result
+        voters[0]= voters[0]-1
+        pointer-=1
+   
+         ###this part isnt right i need to return the more specific thing that i need to calculate the banzaf power index i forgot
      #### i return the sum from t[-2][right to left counting based on their power and add it up]
 
 
 
+def simulation(voters, quota):
+    for i in range(len(voters)):
+        banzaf(voters, quota)
+        rotateList(voters)
+    return 
+
+
+
+simulation(voters, quota)
+
+
+    
+
+
+
+    
+
+
+
+
+  
  
 
 
