@@ -4,6 +4,7 @@
 
 
 
+
 # Path: banzaf.py
 
 # Compare this snippet from banzhaf-binary.py:
@@ -21,6 +22,10 @@ voters = [freshman, freshman_deans, sophmore, sophmore_deans, junior, junior_dea
 
 quota = 13
 
+# voters = [4,3,2,1]
+
+# quota = 6
+
 
 
 def rotateList(voters):
@@ -29,21 +34,32 @@ def rotateList(voters):
 
 
 def banzaf(voters, quota):
-    t = [[0 for x in range(quota+1)] for x in range(len(voters)+1)]  ##this is the table that will be used to calculate the banzaf power index
+    t = [[0 for x in range(quota)] for x in range(len(voters)+1)]  ##this is the table that will be used to calculate the banzaf power index
     t[0][0] = 1  ###this is the base case thing that we need to do
     for i in range(1, len(voters)+1):
-        for j in range(0, quota+1):
+        for j in range(0, quota):
             if voters[i-1] > j:
                 t[i][j] = t[i-1][j]  ### this is all charlie's idea 
             else:
                 t[i][j] = t[i-1][j] + t[i-1][j-voters[i-1]]   ### other given for the algorithm by charlie 
-    print(t)
-    result = 0
-    pointer = -1
-    while(voters[0] > 0):
-        result = result + t[-2][pointer]  ## adding the numbers to get the result
-        voters[0]= voters[0]-1
-        pointer-=1
+    
+    print(voters[-1])
+
+    for i in range(len(voters)+1):
+        print(t[i]) 
+    
+         ###this is just to print the table so i can see it
+    print('')
+    sum = 0
+
+    for i in range((quota-voters[-1]), quota):
+        sum += t[-2][i]
+
+    print(f'Voting power: {sum}\n')
+
+    return sum
+
+
    
          ###this part isnt right i need to return the more specific thing that i need to calculate the banzaf power index i forgot
      #### i return the sum from t[-2][right to left counting based on their power and add it up]
@@ -51,10 +67,16 @@ def banzaf(voters, quota):
 
 
 def simulation(voters, quota):
+    powers = []
     for i in range(len(voters)):
-        banzaf(voters, quota)
+        powers.append(banzaf(voters, quota))
         rotateList(voters)
-    return 
+      
+    print(powers)
+    print(sum(powers))
+
+
+
 
 
 

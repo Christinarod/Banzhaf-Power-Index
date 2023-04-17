@@ -32,7 +32,11 @@ senior_deans = False
 
 voters = [freshman, freshman_deans, sophmore, sophmore_deans, junior, junior_deans, senior, senior_deans]
 
-q = 13;
+A = 4;
+B = 3;
+C = 2;
+D = 1;
+q = 6;
 
 
 # 0-255 in bcd (2^8 - 1) (8 is the number of voters)
