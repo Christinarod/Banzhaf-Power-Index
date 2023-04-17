@@ -10,7 +10,8 @@ A = 4;
 B = 3;
 C = 2;
 D = 1;
-q = 6;
+
+q = 13;
 
 numA_Swing = 0;
 numB_Swing = 0;
