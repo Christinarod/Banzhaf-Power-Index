@@ -1,30 +1,52 @@
 # Banzhaf Power Index - Binary Method
-# ctr + alt + n to run code
+# ctrl + alt + n to run code
 
-a = False;
-b = False;
-c = False;
-d = False;
+# Voting power 
+freshman = 4
+freshman_deans = 5
+sophmore = 3
+sophmore_deans = 4
+junior = 2
+junior_deans = 3
+senior = 1
+senior_deans = 2
 
-A = 4;
-B = 3;
-C = 2;
-D = 1;
-q = 6;
+freshmanSwing = 0
+freshman_deansSwing = 0
+sophmoreSwing = 0
+sophmore_deansSwing = 0
+juniorSwing = 0
+junior_deansSwing = 0
+seniorSwing = 0
+senior_deansSwing = 0
 
-numA_Swing = 0;
-numB_Swing = 0;
-numC_Swing = 0;
-numD_Swing = 0;
 
-# 0-15 in bcd 
-for num in range(16):
+freshman = False
+freshman_deans = False
+sophmore = False
+sophmore_deans = False
+junior = False
+junior_deans = False
+senior = False
+senior_deans = False
 
-# below is to reinitialize a,b,c and d to false
-    a = False
-    b = False
-    c = False
-    d = False
+voters = [freshman, freshman_deans, sophmore, sophmore_deans, junior, junior_deans, senior, senior_deans]
+
+q = 13;
+
+
+# 0-255 in bcd (2^8 - 1) (8 is the number of voters)
+for num in range(256):
+
+# below is to reinitialize
+    freshman = False
+    freshman_deans = False
+    sophmore = False
+    sophmore_deans = False
+    junior = False
+    junior_deans = False
+    senior = False
+    senior_deans = False
 
     x = bin(num)[2:].zfill(4); # skips the 0b and pads it to four digits 
     print(x); # bin number 
