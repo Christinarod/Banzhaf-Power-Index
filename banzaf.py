@@ -39,9 +39,9 @@ def banzaf(voters, quota):
     for i in range(1, len(voters)+1):
         for j in range(0, quota):
             if voters[i-1] > j:
-                t[i][j] = t[i-1][j]  ### this is all charlie's idea 
+                t[i][j] = t[i-1][j]  
             else:
-                t[i][j] = t[i-1][j] + t[i-1][j-voters[i-1]]   ### other given for the algorithm by charlie 
+                t[i][j] = t[i-1][j] + t[i-1][j-voters[i-1]]   
     
     print(voters[-1])
 
@@ -74,7 +74,6 @@ def simulation(voters, quota):
       
     print(powers)
     print(sum(powers))
-
 
 
 
