@@ -60,9 +60,6 @@ def banzaf(voters, quota):
     return sum
 
 
-   
-         ###this part isnt right i need to return the more specific thing that i need to calculate the banzaf power index i forgot
-     #### i return the sum from t[-2][right to left counting based on their power and add it up]
 
 
 
