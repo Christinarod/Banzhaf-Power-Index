@@ -71,9 +71,22 @@ def simulation(voters, quota):
     for i in range(len(voters)):
         powers.append(banzaf(voters, quota))
         rotateList(voters)
-      
+
+
+    powers.append(powers.pop(0))
     print(powers)
     print(sum(powers))
+    print('')
+    banzhaf = []
+    for i in range(len(powers)):
+       # print(powers[i]/sum(powers))
+        banzhaf.append(round(powers[i]/sum(powers), 2) )
+
+    print(banzhaf)
+      
+
+    
+
 
 
 
